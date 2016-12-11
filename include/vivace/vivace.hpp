@@ -14,5 +14,14 @@
 	limitations under the License.
 */
 
+#ifndef V_VIVACE_HPP
+#define V_VIVACE_HPP
+#pragma once
+
 #include "allegro.hpp"
 #include "base.hpp"
+#include "object.hpp"
+#include "loops.hpp"
+#include "utils.hpp"
+
+#endif // V_VIVACE_HPP

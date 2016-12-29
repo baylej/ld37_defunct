@@ -112,6 +112,9 @@ set_target_properties(${GAME_NAME} PROPERTIES
 # Add directories to the include search path
 target_include_directories(${GAME_NAME} PRIVATE ${Vivace_Include_Dirs})
 
+# Group header sources
+source_group(vivace_headers REGULAR_EXPRESSION "include/vivace/*")
+
 # Link with dependencies
 target_link_libraries(${GAME_NAME} ${Vivace_Libraries})
 

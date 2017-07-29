@@ -88,4 +88,31 @@ void Object_split_aggregator::add_handle(std::function<void(const ALLEGRO_EVENT&
 	handle_functions.push_front(handle_func);
 }
 
+// ----
+
+void Object_mixed_aggregator::add(Object& object)
+{
+    std::function<void(void)> draw =  std::bind(&Object::draw, &object);
+    add_draw_front(draw);
+    std::function<void(void)> update = std::bind(&Object::update, &object);
+    add_update(update);
+    std::function<void(const ALLEGRO_EVENT&)> handle = std::bind(&Object::handle, &object, std::placeholders::_1);
+    add_handle(handle);
+}
+
+void Object_mixed_aggregator::update()
+{
+    Object_split_aggregator::update();
+}
+
+void Object_mixed_aggregator::draw()
+{
+    Object_split_aggregator::draw();
+}
+
+void Object_mixed_aggregator::handle(const ALLEGRO_EVENT& event)
+{
+    Object_split_aggregator::handle(event);
+}
+
 } // namespace vivace

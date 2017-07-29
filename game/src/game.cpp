@@ -29,11 +29,11 @@ using namespace std;
 
 using namespace glm;
 
-class Game: public Object {
+class Game: public Object_mixed_aggregator {
 public:
 	Game():
-	    dbg_font(al_create_builtin_font()),
-	    character(true)
+	    character(true),
+	    dbg_font(al_create_builtin_font())
 	{
 		bg_colour   = al_color_hsv(0., .8, .2);
 		johnny = unique_ptr<ALLEGRO_BITMAP, al_bitmap_deleter>(al_load_bitmap("data/johnny_running.png"));

@@ -130,9 +130,12 @@ private:
 	};
 };
 
+#define _STR(x) #x
+#define STR(x) _STR(x)""s
+
 int main(void) {
 	try {
-		Vivace engine("GAME_NAME"s, ""s);
+		Vivace engine(STR(GAME_NAME), ""s);
 		unique_ptr<ALLEGRO_DISPLAY, al_display_deleter> dsp(al_create_display(800, 600));
 		Game game;
 		Basic_loop main_loop(1/30., game);
